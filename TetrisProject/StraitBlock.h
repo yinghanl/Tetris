@@ -8,11 +8,8 @@ public:
 	StraitBlock();
 	~StraitBlock();
 
+	void Load() override;
 	void Unload() override;
-	void Render(Graphics* gfx) override;
-	void Update() override;
-	void Left() override;
-	void Right() override;
 	void RotateClockwise() override;
 };
 

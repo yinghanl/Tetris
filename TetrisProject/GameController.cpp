@@ -1,20 +1,30 @@
 #include "GameController.h"
+#include "GameConstants.cpp"
 
 
 bool GameController::mLoading;
 Block* GameController::mCurrentBlock;
-std::vector<Block*> GameController::mBlocks;
 int GameController::mHeights[10];
+bool GameController::mBlocks[10][20];
 
 void GameController::Init()
 {
 	mLoading = true;
+
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			mBlocks[i][j] = false;
+		}
+	}
+
 	mCurrentBlock = nullptr;
-	mBlocks.clear();
 	for (int i = 0; i < 10; i++)
 	{
 		mHeights[i] = 0;
 	}
+
 	mLoading = false;
 }
 
@@ -38,10 +48,17 @@ void GameController::Render(Graphics* gfx)
 {
 	gfx->ClearScreen(0.0f, 0.0f, 0.5f);
 
-	for (Block* block : mBlocks)
+	for (int i = 0; i < 10; i++)
 	{
-		block->Render(gfx);
+		for (int j = 0; j < 20; j++)
+		{
+			if (mBlocks[i][j] == true)
+			{
+				gfx->DrawRectangle(i * BLOCK_WIDTH, j * BLOCK_WIDTH, BLOCK_HEIGHT, BLOCK_WIDTH, 1.0f, 1.0f, 1.0f, 1.0f);
+			}
+		}
 	}
+
 	mCurrentBlock->Render(gfx);
 }
 
@@ -83,8 +100,50 @@ bool GameController::FinishedBlock()
 {
 	if (mCurrentBlock->mFinished)
 	{
-		mBlocks.push_back(mCurrentBlock);
+		for (int i = 0; i < 4; i++)
+		{
+			int x = mCurrentBlock->mComponents[i].x;
+			int y = mCurrentBlock->mComponents[i].y;
+
+			mBlocks[x][y] = true;
+		}
+		CheckLineClears();
 	}
 
 	return mCurrentBlock->mFinished;
+}
+
+void GameController::CheckLineClears()
+{
+	int numberOfClearedLines = 0;
+
+	for (int i = 19; i >= 0; i--)
+	{
+		int countBlocks = 0;
+		for (int j = 0; j < 10; j++)
+		{
+			if (mBlocks[j][i] == true)
+			{
+				countBlocks++;
+			}
+		}
+		if (countBlocks == 10)
+		{
+
+			numberOfClearedLines++;
+			for (int j = 0; j < 10; j++)
+			{
+				mBlocks[j][i] = false;
+			}
+
+			for (int k = i; k >= 1; k--)
+			{
+				for (int j = 0; j < 10; j++)
+				{
+					mBlocks[j][k] = mBlocks[j][k - 1];
+				}
+			}
+			i++;
+		}
+	}
 }

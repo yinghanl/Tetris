@@ -30,28 +30,10 @@
     <ClCompile Include="GameController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TBlock.cpp">
-      <Filter>Block</Filter>
-    </ClCompile>
-    <ClCompile Include="LBlock.cpp">
-      <Filter>Block</Filter>
-    </ClCompile>
-    <ClCompile Include="JBlock.cpp">
-      <Filter>Block</Filter>
-    </ClCompile>
-    <ClCompile Include="SquareBlock.cpp">
-      <Filter>Block</Filter>
-    </ClCompile>
     <ClCompile Include="StraitBlock.cpp">
       <Filter>Block</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
-      <Filter>Block</Filter>
-    </ClCompile>
-    <ClCompile Include="ZBlock.cpp">
-      <Filter>Block</Filter>
-    </ClCompile>
-    <ClCompile Include="SBlock.cpp">
       <Filter>Block</Filter>
     </ClCompile>
     <ClCompile Include="GameBackend.cpp">
@@ -68,34 +50,13 @@
     <ClInclude Include="GameController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TBlock.h">
-      <Filter>Block Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StraitBlock.h">
-      <Filter>Block Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SquareBlock.h">
-      <Filter>Block Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LBlock.h">
-      <Filter>Block Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="JBlock.h">
       <Filter>Block Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Block.h">
       <Filter>Block Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ZBlock.h">
-      <Filter>Block Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SBlock.h">
-      <Filter>Block Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameBackend.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

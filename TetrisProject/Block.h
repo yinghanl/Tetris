@@ -1,6 +1,12 @@
 #pragma once
 #include "Graphics.h"
 
+struct RenderableBlock
+{
+	int x;
+	int y;
+};
+
 class Block
 {
 public:
@@ -14,15 +20,15 @@ public:
 	};
 
 	bool mLoading;
-	float x;
-	float y;
-	float ySpeed;
+	int ySpeed;
 	Direction mDirection;
 	bool mFinished;
+	int mCurrentY;
+	RenderableBlock mComponents[4];
 
 	virtual void Load();
 	virtual void Unload() = 0;
-	virtual void Render(Graphics* gfx) = 0;
+	virtual void Render(Graphics* gfx);
 	virtual void Update();
 	virtual void Left();
 	virtual void Right();

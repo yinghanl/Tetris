@@ -1,5 +1,3 @@
-#include "GameConstants.h"
-
 
 static const float BLOCK_HEIGHT = 25.0f;
 static const float BLOCK_WIDTH = 25.0f;

@@ -1,41 +1,85 @@
 #include "Block.h"
 
 #include "GameConstants.cpp"
+#include "GameController.h"
 
 void Block::Load()
 {
 	mFinished = false;
 	mDirection = UP;
-	y = 0.0f;
-	x = 200.0f;
-	ySpeed = 1.0f;
+	ySpeed = 5;
+	mCurrentY = 0;
+}
+
+void Block::Render(Graphics * gfx)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		gfx->DrawRectangle(mComponents[i].x * BLOCK_WIDTH, mComponents[i].y * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 1.0f, 1.0f, 1.0f, 1.0f);
+	}
 }
 
 void Block::Update()
 {
-	y += ySpeed;
-	if (y >= WINDOW_HEIGHT)
+	mCurrentY += ySpeed;
+
+	if (mCurrentY < 100)
 	{
-		y = 550;
-		mFinished = true;
+		return;
 	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		//int y = BLOCK_HEIGHT * (mComponents[i].y + 1) + BLOCK_HEIGHT;
+		int x = mComponents[i].x;
+		int y = mComponents[i].y + 1;
+		if (GameController::mBlocks[x][y] || y == 20)
+		{
+			mFinished = true;
+			return;
+		}
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		mComponents[i].y++;
+	}
+	mCurrentY = 0;
 }
 
 void Block::Left()
 {
-	x -= 50;
-	if (x <= 0)
+	for (int i = 0; i < 4; i++)
 	{
-		x = 0;
+		int x = mComponents[i].x;
+		x -= 1;
+
+		if (x < 0)
+		{
+			return;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		mComponents[i].x -= 1;
 	}
 }
 
 void Block::Right()
 {
-	x += 50;
-	if (x >= 800)
+	for (int i = 0; i < 4; i++)
 	{
-		x = 800;
+		int x = mComponents[i].x;
+		x += 1;
+
+		if (x * BLOCK_WIDTH > WINDOW_WIDTH - BLOCK_WIDTH)
+		{
+			return;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		mComponents[i].x += 1;
 	}
 }
 
@@ -43,11 +87,11 @@ void Block::Down(bool key)
 {
 	if (key == true)
 	{
-		ySpeed = 5.0f;
+		ySpeed = 20;
 	}
 	else
 	{
-		ySpeed = 1.0f;
+		ySpeed = 5;
 	}
 }
 
@@ -73,6 +117,19 @@ void Block::RotateClockwise()
 
 void Block::Drop()
 {
-	y = 600;
+
+	int min = INT_MAX;
+	for (int i = 0; i < 4; i++)
+	{
+		if (WINDOW_HEIGHT - static_cast<int>(mComponents[i].y) < min)
+		{
+			min = WINDOW_HEIGHT - static_cast<int>(mComponents[i].y);
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		mComponents[i].y -= min;
+	}
+
 	mFinished = true;
 }

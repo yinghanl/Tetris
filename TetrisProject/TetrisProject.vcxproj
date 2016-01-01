@@ -88,6 +88,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -124,28 +125,15 @@
     <ClCompile Include="GameConstants.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="Graphics.cpp" />
-    <ClCompile Include="JBlock.cpp" />
-    <ClCompile Include="LBlock.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SBlock.cpp" />
-    <ClCompile Include="SquareBlock.cpp" />
     <ClCompile Include="StraitBlock.cpp" />
-    <ClCompile Include="TBlock.cpp" />
-    <ClCompile Include="ZBlock.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="GameBackend.h" />
-    <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="Graphics.h" />
-    <ClInclude Include="JBlock.h" />
-    <ClInclude Include="LBlock.h" />
-    <ClInclude Include="SBlock.h" />
-    <ClInclude Include="SquareBlock.h" />
     <ClInclude Include="StraitBlock.h" />
-    <ClInclude Include="TBlock.h" />
-    <ClInclude Include="ZBlock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -30,15 +30,16 @@ public:
 
 	static int mHeights[10];
 
+	static bool mBlocks[10][20];
 
 private:
 	GameController() { }; //Singleton Class
 
+	~GameController() { };
+
 	static Block* mCurrentBlock;
 	static bool mLoading;
 
-	static std::vector<Block*> mBlocks;
-
-
+	static void CheckLineClears();
 };
 
