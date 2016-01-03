@@ -2,10 +2,6 @@
 
 #include "StraitBlock.h"
 
-#include "GameConstants.cpp"
-#include "GameController.h"
-#include <algorithm>
-
 StraitBlock::StraitBlock()
 {
 }

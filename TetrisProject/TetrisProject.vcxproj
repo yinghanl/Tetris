@@ -121,19 +121,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
-    <ClCompile Include="GameBackend.cpp" />
     <ClCompile Include="GameConstants.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="JBlock.cpp" />
+    <ClCompile Include="LBlock.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SBlock.cpp" />
+    <ClCompile Include="SquareBlock.cpp" />
     <ClCompile Include="StraitBlock.cpp" />
+    <ClCompile Include="TBlock.cpp" />
+    <ClCompile Include="ZBlock.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
-    <ClInclude Include="GameBackend.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="JBlock.h" />
+    <ClInclude Include="LBlock.h" />
+    <ClInclude Include="SBlock.h" />
+    <ClInclude Include="SquareBlock.h" />
     <ClInclude Include="StraitBlock.h" />
+    <ClInclude Include="TBlock.h" />
+    <ClInclude Include="ZBlock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

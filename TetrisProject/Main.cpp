@@ -3,6 +3,12 @@
 #include "GameController.h"
 
 #include "StraitBlock.h"
+#include "SquareBlock.h"
+#include "TBlock.h"
+#include "LBlock.h"
+#include "JBlock.h"
+#include "ZBlock.h"
+#include "SBlock.h"
 #include "GameConstants.cpp"
 
 Graphics* graphics;
@@ -49,7 +55,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	message.message = WM_NULL;
 
 	GameController::Init();
-	GameController::LoadInitialLevel(new StraitBlock());
+	GameController::LoadInitialLevel(new ZBlock());
 
 	while (message.message != WM_QUIT)
 	{
@@ -69,7 +75,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 			if (GameController::FinishedBlock())
 			{
-				GameController::SwitchLevel(new StraitBlock());
+				GameController::SwitchLevel(new ZBlock());
 			}
 		}
 	}

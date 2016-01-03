@@ -117,19 +117,8 @@ void Block::RotateClockwise()
 
 void Block::Drop()
 {
-
-	int min = INT_MAX;
-	for (int i = 0; i < 4; i++)
+	while (!mFinished)
 	{
-		if (WINDOW_HEIGHT - static_cast<int>(mComponents[i].y) < min)
-		{
-			min = WINDOW_HEIGHT - static_cast<int>(mComponents[i].y);
-		}
+		Update();
 	}
-	for (int i = 0; i < 4; i++)
-	{
-		mComponents[i].y -= min;
-	}
-
-	mFinished = true;
 }
