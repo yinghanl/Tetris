@@ -55,7 +55,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	message.message = WM_NULL;
 
 	GameController::Init();
-	GameController::LoadInitialLevel(new ZBlock());
+	GameController::LoadInitialLevel(new StraitBlock());
 
 	while (message.message != WM_QUIT)
 	{
@@ -75,7 +75,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 			if (GameController::FinishedBlock())
 			{
-				GameController::SwitchLevel(new ZBlock());
+				GameController::SwitchLevel(new StraitBlock());
 			}
 		}
 	}

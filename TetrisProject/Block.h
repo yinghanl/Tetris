@@ -26,6 +26,10 @@ public:
 	int mCurrentY;
 	RenderableBlock mComponents[4];
 
+	float mRed;
+	float mGreen;
+	float mBlue;
+
 	virtual void Load();
 	virtual void Unload() = 0;
 	virtual void Render(Graphics* gfx);

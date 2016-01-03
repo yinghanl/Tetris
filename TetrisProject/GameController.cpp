@@ -46,7 +46,7 @@ void GameController::SwitchLevel(Block* block)
 
 void GameController::Render(Graphics* gfx)
 {
-	gfx->ClearScreen(0.0f, 0.0f, 0.5f);
+	gfx->ClearScreen(1.0f, 1.0f, 1.0f);
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -54,7 +54,7 @@ void GameController::Render(Graphics* gfx)
 		{
 			if (mBlocks[i][j] == true)
 			{
-				gfx->DrawRectangle(i * BLOCK_WIDTH, j * BLOCK_WIDTH, BLOCK_HEIGHT, BLOCK_WIDTH, 1.0f, 1.0f, 1.0f, 1.0f);
+				gfx->DrawRectangle(i * BLOCK_WIDTH, j * BLOCK_WIDTH, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f);
 			}
 		}
 	}

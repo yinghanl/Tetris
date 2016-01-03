@@ -16,6 +16,7 @@ public:
 	void ClearScreen(float r, float g, float b);
 	void DrawCircle(float x, float y, float radius, float r, float g, float b, float a);
 	void DrawRectangle(float x, float y, float h, float w, float r, float g, float b, float a);
+	void FillRectangle(float x, float y, float h, float w, float r, float g, float b, float a);
 
 private:
 	ID2D1Factory* mFactory;

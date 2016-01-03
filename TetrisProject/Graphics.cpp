@@ -76,3 +76,13 @@ void Graphics::DrawRectangle(float x, float y, float h, float w, float r, float 
 
 	brush->Release();
 }
+
+void Graphics::FillRectangle(float x, float y, float h, float w, float r, float g, float b, float a)
+{
+	ID2D1SolidColorBrush *brush;
+	mRenderTarget->CreateSolidColorBrush(D2D1::ColorF(r, g, b, a), &brush);
+
+	mRenderTarget->FillRectangle(D2D1::Rect(x, y, x + w, y + h), brush);
+
+	brush->Release();
+}

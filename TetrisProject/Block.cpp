@@ -15,7 +15,8 @@ void Block::Render(Graphics * gfx)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		gfx->DrawRectangle(mComponents[i].x * BLOCK_WIDTH, mComponents[i].y * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 1.0f, 1.0f, 1.0f, 1.0f);
+		gfx->DrawRectangle(mComponents[i].x * BLOCK_WIDTH, mComponents[i].y * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f);
+		gfx->FillRectangle(mComponents[i].x * BLOCK_WIDTH, mComponents[i].y * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, mRed, mGreen, mBlue, 1.0f);
 	}
 }
 
