@@ -1,5 +1,5 @@
 #include "JBlock.h"
-
+#include "GameConstants.cpp"
 
 
 JBlock::JBlock()
@@ -19,6 +19,10 @@ void JBlock::Unload()
 void JBlock::Load()
 {
 	Block::Load();
+
+	mRed = J_RED;
+	mGreen = J_GREEN;
+	mBlue = J_BLUE;
 
 	mComponents[0].x = 5;
 	mComponents[0].y = 2;

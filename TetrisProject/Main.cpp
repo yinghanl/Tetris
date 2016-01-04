@@ -2,14 +2,9 @@
 #include "Graphics.h"
 #include "GameController.h"
 
-#include "StraitBlock.h"
-#include "SquareBlock.h"
-#include "TBlock.h"
-#include "LBlock.h"
-#include "JBlock.h"
-#include "ZBlock.h"
-#include "SBlock.h"
 #include "GameConstants.cpp"
+
+#include <ctime>
 
 Graphics* graphics;
 
@@ -19,6 +14,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 // the entry point for any Windows program
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
+	srand(time(NULL));
+
 	WNDCLASSEX windowClass;
 	ZeroMemory(&windowClass, sizeof(WNDCLASSEX));
 	windowClass.cbSize = sizeof(WNDCLASSEX);
@@ -55,7 +52,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	message.message = WM_NULL;
 
 	GameController::Init();
-	GameController::LoadInitialLevel(new StraitBlock());
 
 	while (message.message != WM_QUIT)
 	{
@@ -73,10 +69,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 			graphics->EndDraw();
 
-			if (GameController::FinishedBlock())
-			{
-				GameController::SwitchLevel(new StraitBlock());
-			}
+			GameController::FinishedBlock();
 		}
 	}
 	delete graphics;

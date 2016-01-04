@@ -1,5 +1,5 @@
 #include "ZBlock.h"
-
+#include "GameConstants.cpp"
 
 
 ZBlock::ZBlock()
@@ -18,6 +18,10 @@ void ZBlock::Unload()
 void ZBlock::Load()
 {
 	Block::Load();
+
+	mRed = Z_RED;
+	mGreen = Z_GREEN;
+	mBlue = Z_BLUE;
 
 	mComponents[0].x = 4;
 	mComponents[0].y = 1;

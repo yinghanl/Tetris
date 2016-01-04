@@ -1,5 +1,5 @@
 #include "SBlock.h"
-
+#include "GameConstants.cpp"
 
 
 SBlock::SBlock()
@@ -19,6 +19,10 @@ void SBlock::Unload()
 void SBlock::Load()
 {
 	Block::Load();
+
+	mRed = S_RED;
+	mGreen = S_GREEN;
+	mBlue = S_BLUE;
 
 	mComponents[0].x = 5;
 	mComponents[0].y = 1;

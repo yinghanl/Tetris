@@ -19,13 +19,13 @@ void StraitBlock::Load()
 	mGreen = 0.5f;
 	mBlue = 0.5f;
 
-	mComponents[0].x = 0;
+	mComponents[0].x = 5;
 	mComponents[0].y = 0;
-	mComponents[1].x = 0;
+	mComponents[1].x = 5;
 	mComponents[1].y = 1;
-	mComponents[2].x = 0;
+	mComponents[2].x = 5;
 	mComponents[2].y = 2;
-	mComponents[3].x = 0;
+	mComponents[3].x = 5;
 	mComponents[3].y = 3;
 }
 

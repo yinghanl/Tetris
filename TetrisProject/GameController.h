@@ -7,6 +7,20 @@
 
 class GameController
 {
+
+public:
+	enum BlockType
+	{
+		STRAIT,
+		SQUARE,
+		Z,
+		S,
+		L,
+		J,
+		T,
+		EMPTY
+	};
+
 public:
 	static void LoadInitialLevel(Block* block);
 	static void SwitchLevel(Block* block);
@@ -26,11 +40,11 @@ public:
 
 	static void Drop();
 
-	static bool FinishedBlock();
+	static void FinishedBlock();
 
 	static int mHeights[10];
 
-	static bool mBlocks[10][20];
+	static BlockType mBlocks[10][20];
 
 private:
 	GameController() { }; //Singleton Class
@@ -41,5 +55,9 @@ private:
 	static bool mLoading;
 
 	static void CheckLineClears();
+
+	static void GenerateBlock();
+
+	static void GameOver();
 };
 

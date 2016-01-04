@@ -1,5 +1,5 @@
 #include "TBlock.h"
-
+#include "GameConstants.cpp"
 
 
 TBlock::TBlock()
@@ -14,6 +14,10 @@ TBlock::~TBlock()
 void TBlock::Load()
 {
 	Block::Load();
+
+	mRed = T_RED;
+	mGreen = T_GREEN;
+	mBlue = T_BLUE;
 
 	mComponents[0].x = 5;
 	mComponents[0].y = 1;

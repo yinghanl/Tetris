@@ -1,4 +1,5 @@
 #include "LBlock.h"
+#include "GameConstants.cpp"
 
 LBlock::LBlock()
 {
@@ -12,6 +13,10 @@ LBlock::~LBlock()
 void LBlock::Load()
 {
 	Block::Load();
+
+	mRed = L_RED;
+	mGreen = L_GREEN;
+	mBlue = L_BLUE;
 
 	mComponents[0].x = 5;
 	mComponents[0].y = 2;

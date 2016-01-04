@@ -34,7 +34,7 @@ void Block::Update()
 		//int y = BLOCK_HEIGHT * (mComponents[i].y + 1) + BLOCK_HEIGHT;
 		int x = mComponents[i].x;
 		int y = mComponents[i].y + 1;
-		if (GameController::mBlocks[x][y] || y == 20)
+		if (GameController::mBlocks[x][y] != GameController::BlockType::EMPTY || y == 20)
 		{
 			mFinished = true;
 			return;

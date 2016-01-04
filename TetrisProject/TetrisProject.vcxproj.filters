@@ -55,7 +55,7 @@
       <Filter>Block</Filter>
     </ClCompile>
     <ClCompile Include="SBlock.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Block</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +87,7 @@
       <Filter>Block Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SBlock.h">
-      <Filter>Header Files</Filter>
+      <Filter>Block Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

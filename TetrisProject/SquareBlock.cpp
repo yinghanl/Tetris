@@ -1,5 +1,5 @@
 #include "SquareBlock.h"
-
+#include "GameConstants.cpp"
 
 
 SquareBlock::SquareBlock()
@@ -15,6 +15,10 @@ SquareBlock::~SquareBlock()
 void SquareBlock::Load()
 {
 	Block::Load();
+
+	mRed = SQUARE_RED;
+	mGreen = SQUARE_GREEN;
+	mBlue = SQUARE_BLUE;
 
 	mComponents[0].x = 5;
 	mComponents[0].y = 1;
