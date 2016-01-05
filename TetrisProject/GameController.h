@@ -59,5 +59,7 @@ private:
 	static void GenerateBlock();
 
 	static void GameOver();
+
+	static int mScore;
 };
 

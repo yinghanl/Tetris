@@ -9,14 +9,19 @@
 #include "SBlock.h"
 #include "ZBlock.h"
 
+#include <sstream>
+
 bool GameController::mLoading;
 Block* GameController::mCurrentBlock;
 int GameController::mHeights[10];
 GameController::BlockType GameController::mBlocks[10][20];
+int GameController::mScore;
 
 void GameController::Init()
 {
 	mLoading = true;
+
+	mScore = 0;
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -55,6 +60,12 @@ void GameController::SwitchLevel(Block* block)
 void GameController::Render(Graphics* gfx)
 {
 	gfx->ClearScreen(1.0f, 1.0f, 1.0f);
+
+	std::stringstream ss;
+	ss << "Score: ";
+	ss << mScore;
+
+	gfx->DrawTextBox(350.0f, 200.0f, ss.str());
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -223,6 +234,11 @@ void GameController::CheckLineClears()
 			}
 			i++;
 		}
+	}
+
+	if (numberOfClearedLines != 0)
+	{
+		mScore++;
 	}
 }
 

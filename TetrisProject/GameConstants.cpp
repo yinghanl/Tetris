@@ -2,7 +2,8 @@
 static const float BLOCK_HEIGHT = 25.0f;
 static const float BLOCK_WIDTH = 25.0f;
 static const float WINDOW_HEIGHT = 500.0f;
-static const float WINDOW_WIDTH = 250.0f;
+static const float WINDOW_WIDTH = 500.0f;
+static const float GAME_WIDTH = 250.0f;
 
 static const float STRAIT_RED = 0.0f;
 static const float STRAIT_GREEN = 0.5f;

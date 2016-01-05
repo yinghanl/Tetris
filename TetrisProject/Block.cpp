@@ -73,7 +73,7 @@ void Block::Right()
 		int x = mComponents[i].x;
 		x += 1;
 
-		if (x * BLOCK_WIDTH > WINDOW_WIDTH - BLOCK_WIDTH)
+		if (x > 9)
 		{
 			return;
 		}

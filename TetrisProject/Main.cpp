@@ -30,7 +30,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	RECT rect = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
 
-	HWND windowHandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, windowClass.lpszClassName, "Tetris Project", WS_OVERLAPPEDWINDOW, 50, 100, (rect.right-rect.left), (rect.bottom-rect.top), NULL, NULL, hInstance, NULL);
+	HWND windowHandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, windowClass.lpszClassName, "Tetris Project", WS_OVERLAPPEDWINDOW, 100, 100, (rect.right-rect.left), (rect.bottom-rect.top), NULL, NULL, hInstance, NULL);
 
 	if (windowHandle == NULL)
 	{

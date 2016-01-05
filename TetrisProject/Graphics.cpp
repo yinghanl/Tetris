@@ -1,5 +1,5 @@
 #include "Graphics.h"
-
+#include <dwrite.h>
 
 
 Graphics::Graphics()
@@ -85,4 +85,55 @@ void Graphics::FillRectangle(float x, float y, float h, float w, float r, float 
 	mRenderTarget->FillRectangle(D2D1::Rect(x, y, x + w, y + h), brush);
 
 	brush->Release();
+}
+
+void Graphics::DrawTextBox(float x, float y, std::string s)
+{
+	IDWriteTextFormat *format;
+	IDWriteFactory* IDWriteFactory = NULL;
+	IDWriteTextFormat* ITextFormat = NULL;
+	ID2D1SolidColorBrush* brush = NULL;
+
+	HRESULT result = DWriteCreateFactory(DWRITE_FACTORY_TYPE_ISOLATED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&IDWriteFactory));
+
+	if (SUCCEEDED(result))
+	{
+		result = IDWriteFactory->CreateTextFormat(
+			L"Arial",
+			NULL,
+			DWRITE_FONT_WEIGHT_NORMAL,
+			DWRITE_FONT_STYLE_NORMAL,
+			DWRITE_FONT_STRETCH_NORMAL,
+			10.0f * 96.0f / 72.0f,
+			L"en-US",
+			&ITextFormat
+			);
+	}
+
+	if (SUCCEEDED(result))
+	{
+		mRenderTarget->CreateSolidColorBrush(D2D1::ColorF(0.0f, 0.0f, 0.0f, 1.0f), &brush);
+	}
+
+	D2D1_RECT_F layoutRect = D2D1::RectF(x, y, x + 100, y + 100);
+
+	// Actually draw the text at the origin.
+	if (SUCCEEDED(result))
+	{
+		std::wstring widestr = std::wstring(s.begin(), s.end());
+
+		mRenderTarget->DrawText(
+			widestr.c_str(),
+			s.size(),
+			ITextFormat,
+			layoutRect,
+			brush
+			);
+	}
+	// Clean up.
+	brush->Release();
+	ITextFormat->Release();
+	IDWriteFactory->Release();
+
+
 }
