@@ -16,7 +16,7 @@ public:
 
 	void ClearScreen(float r, float g, float b);
 	void DrawCircle(float x, float y, float radius, float r, float g, float b, float a);
-	void DrawRectangle(float x, float y, float h, float w, float r, float g, float b, float a);
+	void DrawRectangle(float x, float y, float h, float w, float r, float g, float b, float a, float t);
 	void FillRectangle(float x, float y, float h, float w, float r, float g, float b, float a);
 	void DrawTextBox(float x, float y, std::string s);
 

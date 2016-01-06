@@ -67,12 +67,12 @@ void Graphics::DrawCircle(float x, float y, float radius, float r, float g, floa
 	brush->Release();
 }
 
-void Graphics::DrawRectangle(float x, float y, float h, float w, float r, float g, float b, float a)
+void Graphics::DrawRectangle(float x, float y, float h, float w, float r, float g, float b, float a, float t)
 {
 	ID2D1SolidColorBrush *brush;
 	mRenderTarget->CreateSolidColorBrush(D2D1::ColorF(r, g, b, a), &brush);
 
-	mRenderTarget->DrawRectangle(D2D1::Rect(x, y, x + w, y + h), brush, 3.0F);
+	mRenderTarget->DrawRectangle(D2D1::Rect(x, y, x + w, y + h), brush, 2.0F);
 
 	brush->Release();
 }
