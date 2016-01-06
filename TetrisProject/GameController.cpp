@@ -236,9 +236,21 @@ void GameController::CheckLineClears()
 		}
 	}
 
-	if (numberOfClearedLines != 0)
+	if (numberOfClearedLines == 1)
 	{
-		mScore++;
+		mScore += 500;
+	}
+	else if (numberOfClearedLines == 2)
+	{
+		mScore += 2000;
+	}
+	else if (numberOfClearedLines == 3)
+	{
+		mScore += 4000;
+	}
+	else if (numberOfClearedLines == 4)
+	{
+		mScore += 10000;
 	}
 }
 
