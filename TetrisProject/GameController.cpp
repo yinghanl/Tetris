@@ -16,6 +16,7 @@ Block* GameController::mCurrentBlock;
 int GameController::mHeights[10];
 GameController::BlockType GameController::mBlocks[10][20];
 int GameController::mScore;
+GameController::BlockType GameController::mNextBlock;
 
 void GameController::Init()
 {
@@ -35,6 +36,33 @@ void GameController::Init()
 	for (int i = 0; i < 10; i++)
 	{
 		mHeights[i] = 0;
+	}
+
+	int random = rand();
+
+	switch (random)
+	{
+	case 0:
+		mNextBlock = STRAIT;
+		break;
+	case 1:
+		mNextBlock = T;
+		break;
+	case 2:
+		mNextBlock = SQUARE;
+		break;
+	case 3:
+		mNextBlock = J;
+		break;
+	case 4:
+		mNextBlock = L;
+		break;
+	case 5:
+		mNextBlock = S;
+		break;
+	case 6:
+		mNextBlock = Z;
+		break;
 	}
 
 	GenerateBlock();
@@ -66,6 +94,32 @@ void GameController::Render(Graphics* gfx)
 	ss << mScore;
 
 	gfx->DrawTextBox(350.0f, 200.0f, ss.str());
+
+	switch (mNextBlock)
+	{
+	case STRAIT:
+		gfx->DrawTextBox(350.0f, 100.0f, "Strait");
+		break;
+	case T:
+		gfx->DrawTextBox(350.0f, 100.0f, "T");
+		break;
+	case SQUARE:
+		gfx->DrawTextBox(350.0f, 100.0f, "Square");
+		break;
+	case J:
+		gfx->DrawTextBox(350.0f, 100.0f, "J");
+		break;
+	case L:
+		gfx->DrawTextBox(350.0f, 100.0f, "L");
+		break;
+	case S:
+		gfx->DrawTextBox(350.0f, 100.0f, "S");
+		break;
+	case Z:
+		gfx->DrawTextBox(350.0f, 100.0f, "Z");
+		break;
+	}
+
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -268,34 +322,60 @@ void GameController::GenerateBlock()
 {
 	int random = rand() % 7;
 
-	if (random == 0)
+	if (mNextBlock == STRAIT)
 	{
 		GameController::SwitchLevel(new StraitBlock());
 	}
-	else if (random == 1)
+	else if (mNextBlock == T)
 	{
 		GameController::SwitchLevel(new TBlock());
 	}
-	else if (random == 2)
+	else if (mNextBlock == SQUARE)
 	{
 		GameController::SwitchLevel(new SquareBlock());
 	}
-	else if (random == 3)
+	else if (mNextBlock == J)
 	{
 		GameController::SwitchLevel(new JBlock());
 	}
-	else if (random == 4)
+	else if (mNextBlock == L)
 	{
 		GameController::SwitchLevel(new LBlock());
 	}
-	else if (random == 5)
+	else if (mNextBlock == S)
 	{
 		GameController::SwitchLevel(new SBlock());
 	}
-	else if (random == 6)
+	else if (mNextBlock == Z)
 	{
 		GameController::SwitchLevel(new ZBlock());
 	}
+
+	switch (random)
+	{
+	case 0:
+		mNextBlock = STRAIT;
+		break;
+	case 1:
+		mNextBlock = T;
+		break;
+	case 2:
+		mNextBlock = SQUARE;
+		break;
+	case 3:
+		mNextBlock = J;
+		break;
+	case 4:
+		mNextBlock = L;
+		break;
+	case 5:
+		mNextBlock = S;
+		break;
+	case 6:
+		mNextBlock = Z;
+		break;
+	}
+
 }
 
 void GameController::GameOver()

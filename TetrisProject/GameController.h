@@ -61,5 +61,7 @@ private:
 	static void GameOver();
 
 	static int mScore;
+
+	static BlockType mNextBlock;
 };
 
