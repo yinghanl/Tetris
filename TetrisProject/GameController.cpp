@@ -93,30 +93,86 @@ void GameController::Render(Graphics* gfx)
 	ss << "Score: ";
 	ss << mScore;
 
-	gfx->DrawTextBox(350.0f, 200.0f, ss.str());
+	gfx->DrawTextBox(350.0f, 50.0f, ss.str());
 
 	switch (mNextBlock)
 	{
 	case STRAIT:
-		gfx->DrawTextBox(350.0f, 100.0f, "Strait");
+		gfx->DrawRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, STRAIT_RED, STRAIT_GREEN, STRAIT_BLUE, 1.0f);
+		
+		gfx->DrawRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, STRAIT_RED, STRAIT_GREEN, STRAIT_BLUE, 1.0f);
+		
+		gfx->DrawRectangle(350.0f, 100.0f + 2 * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + 2 * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, STRAIT_RED, STRAIT_GREEN, STRAIT_BLUE, 1.0f);
+		
+		gfx->DrawRectangle(350.0f, 100.0f + 3 * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + 3 * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, STRAIT_RED, STRAIT_GREEN, STRAIT_BLUE, 1.0f);
 		break;
 	case T:
-		gfx->DrawTextBox(350.0f, 100.0f, "T");
+		gfx->DrawRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, T_RED, T_GREEN, T_BLUE, 1.0f);
+
+		gfx->DrawRectangle(350.0f - BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f - BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, T_RED, T_GREEN, T_BLUE, 1.0f);
+
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, T_RED, T_GREEN, T_BLUE, 1.0f);
+
+		gfx->DrawRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, T_RED, T_GREEN, T_BLUE, 1.0f);
+
 		break;
 	case SQUARE:
-		gfx->DrawTextBox(350.0f, 100.0f, "Square");
+		gfx->DrawRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE, 1.0f);
 		break;
 	case J:
-		gfx->DrawTextBox(350.0f, 100.0f, "J");
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, J_RED, J_GREEN, J_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, J_RED, J_GREEN, J_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, J_RED, J_GREEN, J_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + 2 * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + 2 * BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, J_RED, J_GREEN, J_BLUE, 1.0f);
 		break;
 	case L:
-		gfx->DrawTextBox(350.0f, 100.0f, "L");
+		gfx->DrawRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, L_RED, L_GREEN, L_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, L_RED, L_GREEN, L_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, L_RED, L_GREEN, L_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, L_RED, L_GREEN, L_BLUE, 1.0f);
 		break;
 	case S:
-		gfx->DrawTextBox(350.0f, 100.0f, "S");
+		gfx->DrawRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, S_RED, S_GREEN, S_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, S_RED, S_GREEN, S_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, S_RED, S_GREEN, S_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, S_RED, S_GREEN, S_BLUE, 1.0f);
 		break;
 	case Z:
-		gfx->DrawTextBox(350.0f, 100.0f, "Z");
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f, BLOCK_HEIGHT, BLOCK_WIDTH, Z_RED, Z_GREEN, Z_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f + BLOCK_HEIGHT, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, Z_RED, Z_GREEN, Z_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, Z_RED, Z_GREEN, Z_BLUE, 1.0f);
+		gfx->DrawRectangle(350.0f, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, 0.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+		gfx->FillRectangle(350.0f, 100.0f + 2*BLOCK_HEIGHT, BLOCK_HEIGHT, BLOCK_WIDTH, Z_RED, Z_GREEN, Z_BLUE, 1.0f);
 		break;
 	}
 
